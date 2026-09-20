@@ -17,9 +17,6 @@ jobs:
           distribution: temurin
           java-version: '17'
 
-      - name: Setup Android SDK
-        uses: android-actions/setup-android@v3
-
       - name: Extract Android project ZIP
         shell: bash
         run: |
@@ -34,7 +31,6 @@ jobs:
 
           rm -rf project
           mkdir project
-
           unzip -q "$ZIP_FILE" -d project
 
           if [ -f project/settings.gradle ] || [ -f project/settings.gradle.kts ]; then
